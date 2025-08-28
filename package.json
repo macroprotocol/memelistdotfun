@@ -6,7 +6,8 @@
     "dev": "next dev -p 3000",
     "build": "next build",
     "start": "next start -p 3000",
-    "lint": "next lint"
+    "lint": "next lint",
+    "deploy:push": "pwsh -File ./scripts/push.ps1"
   },
   "dependencies": {
     "@prisma/client": "^6.15.0",
