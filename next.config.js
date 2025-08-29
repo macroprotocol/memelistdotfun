@@ -10,7 +10,11 @@ const nextConfig = {
   },
   // Remove custom tracing excludes; rely on Next 14.2.x defaults
   // Webpack optimizations
-  webpack: (config) => {
+  webpack: (config, { dev }) => {
+    // Avoid eval-based source maps in dev to satisfy CSP
+    if (dev) {
+      config.devtool = 'source-map';
+    }
     config.resolve.fallback = {
       ...config.resolve.fallback,
       fs: false,
